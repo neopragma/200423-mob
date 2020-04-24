@@ -45,7 +45,7 @@ class PrimeFactorsTest : DescribeSpec() {
 
     private fun primeFactorsOf(given: Int): List<Int> {
         val result = mutableListOf<Int>()
-        var intermediate = given
+        var intermediate: Int = given
 
         val primes = listOf(2, 3)
         for (candidate in primes) {
