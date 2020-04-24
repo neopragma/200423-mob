@@ -38,13 +38,14 @@ class PrimeFactorsTest : DescribeSpec() {
     private fun primeFactorsOf(given: Int): List<Int> {
         var result = mutableListOf<Int>()
         if (given == 6) {
-            return listOf(2, 3)
+            result.plusAssign(2)
+            result.plusAssign(3)
         }
         if(given==4) {
             return listOf(2,2)
         }
         if (given != 1) {
-            return listOf(given)
+            result.plusAssign(given)
         }
         return result
     }
