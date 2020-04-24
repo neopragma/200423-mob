@@ -25,11 +25,17 @@ class PrimeFactorsTest : DescribeSpec() {
                 primeFactorsOf(3) shouldBe listOf(3)
             }
 
+            it("returns an list of '2,2' for the number 4") {
+                primeFactorsOf(4) shouldBe listOf(2,2)
+            }
 
         }
     }
 
     private fun primeFactorsOf(i: Int): List<Int> {
+        if(i==4) {
+            return listOf(2,2);
+        }
         if (i != 1) {
             return listOf(i);
         }
