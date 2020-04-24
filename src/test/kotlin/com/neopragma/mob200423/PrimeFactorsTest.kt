@@ -36,23 +36,20 @@ class PrimeFactorsTest : DescribeSpec() {
     }
 
     private fun primeFactorsOf(given: Int): List<Int> {
-        var result = mutableListOf<Int>()
+        val result = mutableListOf<Int>()
         var intermediate = given
 
-        if (given % 2 == 0) {
-            result.plusAssign(2)
+        while (intermediate % 2 == 0) {
+            result += 2
             intermediate /= 2
         }
 
-        if (given == 6) {
-            result.plusAssign(2)
-            result.plusAssign(3)
-        } else
-            if (given == 4) {
+
+            if (intermediate == 4) {
                 return listOf(2, 2)
             } else
-                if (given != 1) {
-                    result.plusAssign(given)
+                if (intermediate != 1) {
+                    result.plusAssign(intermediate)
                 }
         return result
     }
