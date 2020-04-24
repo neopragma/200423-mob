@@ -16,10 +16,16 @@ class PrimeFactorsTest : DescribeSpec() {
             it("returns an empty list for the number 1") {
                 primeFactorsOf(1) shouldBe listOf()
             }
+
+            it("returns an list of '2' for the number 2") {
+                primeFactorsOf(2) shouldBe listOf(2)
+            }
+
+
         }
     }
 
     private fun primeFactorsOf(i: Int): List<Int> {
-
+        return listOf();
     }
 }
