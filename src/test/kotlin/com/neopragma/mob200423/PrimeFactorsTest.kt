@@ -26,27 +26,34 @@ class PrimeFactorsTest : DescribeSpec() {
             }
 
             it("returns an list of '2,2' for the number 4") {
-                primeFactorsOf(4) shouldBe listOf(2,2)
+                primeFactorsOf(4) shouldBe listOf(2, 2)
             }
 
             it("returns an list of '2,3' for the number 6") {
-                primeFactorsOf(6) shouldBe listOf(2,3)
+                primeFactorsOf(6) shouldBe listOf(2, 3)
             }
         }
     }
 
     private fun primeFactorsOf(given: Int): List<Int> {
         var result = mutableListOf<Int>()
+        var intermediate = given
+
+        if (given % 2 == 0) {
+            result.plusAssign(2)
+            intermediate /= 2
+        }
+
         if (given == 6) {
             result.plusAssign(2)
             result.plusAssign(3)
-        }
-        if(given==4) {
-            return listOf(2,2)
-        }
-        if (given != 1) {
-            result.plusAssign(given)
-        }
+        } else
+            if (given == 4) {
+                return listOf(2, 2)
+            } else
+                if (given != 1) {
+                    result.plusAssign(given)
+                }
         return result
     }
 }
