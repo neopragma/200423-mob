@@ -32,6 +32,14 @@ class PrimeFactorsTest : DescribeSpec() {
             it("returns an list of '2,3' for the number 6") {
                 primeFactorsOf(6) shouldBe listOf(2, 3)
             }
+
+            it("returns an list of '2,2,2' for the number 8") {
+                primeFactorsOf(8) shouldBe listOf(2, 2, 2)
+            }
+
+            it("returns an list of '3, 3' for the number 9") {
+                primeFactorsOf(9) shouldBe listOf(3, 3)
+            }
         }
     }
 
@@ -39,18 +47,16 @@ class PrimeFactorsTest : DescribeSpec() {
         val result = mutableListOf<Int>()
         var intermediate = given
 
-        while (intermediate % 2 == 0) {
-            result += 2
-            intermediate /= 2
+        val candidate = 2
+
+        while (intermediate % candidate == 0) {
+            result += candidate
+            intermediate /= candidate
         }
 
-
-            if (intermediate == 4) {
-                return listOf(2, 2)
-            } else
-                if (intermediate != 1) {
-                    result.plusAssign(intermediate)
-                }
+        if (intermediate != 1) {
+            result += intermediate
+        }
         return result
     }
 }
