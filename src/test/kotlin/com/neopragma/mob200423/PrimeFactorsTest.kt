@@ -47,18 +47,12 @@ class PrimeFactorsTest : DescribeSpec() {
         val result = mutableListOf<Int>()
         var intermediate = given
 
-        var candidate = 2
-
-        while (intermediate % candidate == 0) {
-            result += candidate
-            intermediate /= candidate
-        }
-
-        candidate = 3
-
-        while (intermediate % candidate == 0) {
-            result += candidate
-            intermediate /= candidate
+        val primes = listOf(2, 3)
+        for (candidate in primes) {
+            while (intermediate % candidate == 0) {
+                result += candidate
+                intermediate /= candidate
+            }
         }
 
         if (intermediate != 1) {
