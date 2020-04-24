@@ -21,11 +21,18 @@ class PrimeFactorsTest : DescribeSpec() {
                 primeFactorsOf(2) shouldBe listOf(2)
             }
 
+            it("returns an list of '3' for the number 3") {
+                primeFactorsOf(3) shouldBe listOf(3)
+            }
+
 
         }
     }
 
     private fun primeFactorsOf(i: Int): List<Int> {
+        if (i != 1) {
+            return listOf(i);
+        }
         return listOf();
     }
 }
