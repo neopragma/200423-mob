@@ -1,6 +1,7 @@
 package com.neopragma.mob200423
 
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.shouldBe
 
 class PrimeFactorsTest : DescribeSpec() {
 
@@ -16,5 +17,9 @@ class PrimeFactorsTest : DescribeSpec() {
                 primeFactorsOf(1) shouldBe listOf()
             }
         }
+    }
+
+    private fun primeFactorsOf(i: Int): List<Int> {
+
     }
 }
