@@ -47,7 +47,14 @@ class PrimeFactorsTest : DescribeSpec() {
         val result = mutableListOf<Int>()
         var intermediate = given
 
-        val candidate = 2
+        var candidate = 2
+
+        while (intermediate % candidate == 0) {
+            result += candidate
+            intermediate /= candidate
+        }
+
+        candidate = 3
 
         while (intermediate % candidate == 0) {
             result += candidate
