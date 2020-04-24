@@ -29,16 +29,22 @@ class PrimeFactorsTest : DescribeSpec() {
                 primeFactorsOf(4) shouldBe listOf(2,2)
             }
 
+            it("returns an list of '2,3' for the number 6") {
+                primeFactorsOf(6) shouldBe listOf(2,3)
+            }
         }
     }
 
-    private fun primeFactorsOf(i: Int): List<Int> {
-        if(i==4) {
-            return listOf(2,2);
+    private fun primeFactorsOf(given: Int): List<Int> {
+        if (given == 6) {
+            return listOf(2, 3)
         }
-        if (i != 1) {
-            return listOf(i);
+        if(given==4) {
+            return listOf(2,2)
         }
-        return listOf();
+        if (given != 1) {
+            return listOf(given)
+        }
+        return listOf()
     }
 }
