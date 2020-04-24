@@ -40,23 +40,28 @@ class PrimeFactorsTest : DescribeSpec() {
             it("returns an list of '3, 3' for the number 9") {
                 primeFactorsOf(9) shouldBe listOf(3, 3)
             }
+
+            it("returns an list of '2, 5' for the number 10") {
+                primeFactorsOf(10) shouldBe listOf(2, 5)
+            }
+            it("returns a list of '17' for the number 17") {
+                primeFactorsOf(17) shouldBe listOf(17)
+            }
         }
     }
 
     private fun primeFactorsOf(given: Int): List<Int> {
         val result = mutableListOf<Int>()
         var intermediate = given
-
-        val candidate = 2
-
-        while (intermediate % candidate == 0) {
-            result += candidate
-            intermediate /= candidate
+        var candidate = 2
+        while (intermediate > 1) {
+            while (intermediate % candidate == 0) {
+                result += candidate
+                intermediate /= candidate
+            }
+            candidate += 1
         }
 
-        if (intermediate != 1) {
-            result += intermediate
-        }
         return result
     }
 }
